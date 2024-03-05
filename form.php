@@ -44,7 +44,7 @@
             mysqli_close($a);
         ?>
 
-        <a href="wpisy.php">Zobacz wszystkie wpisy</a>
+        <a href="wpisy.php">Usuń wpisy</a>
         <a href="edytowanie.php">Edytuj wpisy</a>
     </body>
 </html>

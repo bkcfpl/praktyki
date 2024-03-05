@@ -50,6 +50,6 @@
         ?>
 
         <a href="form.php">Wprowadź wpis</a>
-        <a href="form.php">Edytuj wpisy</a>
+        <a href="wpisy.php">Usuń wpisy</a>
     </body>
 </html>

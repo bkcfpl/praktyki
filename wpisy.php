@@ -32,6 +32,6 @@
         ?>
 
         <a href="form.php">Wprowadź wpis</a>
-        <a href="form.php">Edytuj wpisy</a>
+        <a href="edytowanie.php">Edytuj wpisy</a>
     </body>
 </html>
