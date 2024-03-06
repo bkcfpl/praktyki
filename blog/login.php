@@ -10,18 +10,6 @@
         <title>logowanie</title>
     </head>
     <body>
-        <!--Tworzenie formularza-->
-        <form action = "login.php" method = "post">
-            <p>Wprowadź login: </p>
-            <input type = "text" name = "login">
-
-            <p>Wprowadź hasło: </p>
-            <input type = "password" name = "password"><br/><br/>
-
-            <button type = "submit" name = "accept">Zaloguj</button>
-            <button><a href="register.php" style = "color: black; text-decoration: none">Rejestracja</a></button>
-        </form>
-
         <?php
             $connect = mysqli_connect("localhost", "root", "", "formularz");
             $result = mysqli_query($connect, "SELECT * FROM `login`");
@@ -30,11 +18,23 @@
 
             if($_SESSION['zalogowany']){
                 echo "Zalogowano na konto użytkownika " . $_SESSION["login"] . "<br/>";
-                echo "<button><a href='wpisy.php' style = 'color: black; text-decoration: none'>Usuwanie wpisów</a></button>";
-                echo "<button><a href='form.php' style = 'color: black; text-decoration: none'>Wprowadź nowy wpis</a></button>";
-                echo "<button><a href='edytowanie.php' style = 'color: black; text-decoration: none'>Wszystkie wpisy i edycja</a></button>";
+                echo "<button><a href='nowyWpis.php' style = 'color: black; text-decoration: none'>Wprowadź nowy wpis</a></button>";
+                echo "<button><a href='edycja.php' style = 'color: black; text-decoration: none'>Edytuj lub usuń wpis</a></button>";
+                echo "<button><a href='wpisy.php' style = 'color: black; text-decoration: none'>Zobacz wszystkie wpisy</a></button>";
                 echo "<form action = 'login.php' method = 'post'>";
                     echo "<button type = 'submit' name = 'logout'>Wyloguj</button>";
+                echo "</form>";
+            }
+            else{
+                echo "<form action = 'login.php' method = 'post'>";
+                    echo "<p>Wprowadź login: </p>";
+                    echo "<input type = 'text' name = 'login'>";
+
+                    echo "<p>Wprowadź hasło: </p>";
+                    echo "<input type = 'password' name = 'password'><br/><br/>";
+
+                    echo "<button type = 'submit' name = 'accept'>Zaloguj</button>";
+                    echo "<button><a href='register.php' style = 'color: black; text-decoration: none'>Rejestracja</a></button>";
                 echo "</form>";
             }
 
@@ -48,18 +48,11 @@
                 }
 
                 if($i ==  mysqli_num_rows($result) || $i == 1){
-                    echo "Zalogowano na konto użytkownika " . $_POST["login"] . "<br/>";
-                    echo "<button><a href='wpisy.php' style = 'color: black; text-decoration: none'>Usuwanie wpisów</a></button>";
-                    echo "<button><a href='form.php' style = 'color: black; text-decoration: none'>Wprowadź nowy wpis</a></button>";
-                    echo "<button><a href='edytowanie.php' style = 'color: black; text-decoration: none'>Wszystkie wpisy i edycja</a></button>";
-                    echo "<form action = 'login.php' method = 'post'>";
-                        echo "<button type = 'submit' name = 'logout'>Wyloguj</button>";
-                    echo "</form>";
-
-                    //ustawienie sesji, zresetowanie zmiennej erorr
                     $_SESSION["zalogowany"] = true;
                     $_SESSION["login"] = $_POST['login'];
                     $i = 0;
+
+                    header("Refresh:0");
                 }
                 else{
                     echo "Złe hasło lub login. Spróbuj pownownie";
