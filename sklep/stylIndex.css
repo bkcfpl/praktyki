@@ -1,0 +1,58 @@
+nav{
+    display: flex;
+    background-color: darkgray;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+    padding: 1vw;
+}
+
+h2{
+    margin-right: 86vw;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+button{
+    width: 32vw;
+    text-align: center;
+    height: 40vh;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+
+div{
+    cursor: pointer;
+    background-color: lightgray;
+    border-radius: 3%;
+    padding: 1vw;
+    font-family: 'Konkhmer Sleokchher';
+}
+
+form{
+    display: flex;
+}
+
+div:hover{
+    background-color: gray;
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(-45deg, black, gray);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    font-family: 'Konkhmer Sleokchher';
+}
+
+img{
+    border-radius: 7%;
+}
+
+.cart:hover, a:hover{
+    color: white;
+    cursor: pointer;
+}

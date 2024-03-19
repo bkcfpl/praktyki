@@ -1,0 +1,74 @@
+nav{
+    display: flex;
+    background-color: darkgray;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+    padding: 1vw;
+}
+
+h2{
+    margin-right: 86vw;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+button{
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    font-family: 'Konkhmer Sleokchher';
+    cursor: pointer;
+}
+
+tr{
+    background-color: gray;
+    border-radius: 1%;
+    padding: 1vw;
+    font-family: 'Konkhmer Sleokchher';
+    margin: 3vh;
+    display: flex;
+    width: 60vw;
+    margin-left: 20vw;
+}
+
+tr:hover{
+    background-color: lightslategray;
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(-45deg, black, gray);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    font-family: 'Konkhmer Sleokchher';
+}
+
+img{
+    border-radius: 7%;
+}
+
+.cart:hover, a:hover{
+    color: white;
+    cursor: pointer;
+}
+
+th, td{
+    width: 33%;
+    text-align: center;
+}
+
+.headers{
+    background-color: lightgray;
+    cursor: default;
+}
+
+.headers:hover{
+    background-color: lightgray;
+}
+
+.second{
+    background-color: lightgray;
+}
