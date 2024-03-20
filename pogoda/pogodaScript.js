@@ -8,7 +8,7 @@ function load(latitude, longitude){
 
             document.getElementById("temp_current").innerText = res.current.temperature_2m + "°C"
             code = change_code(res.current.weather_code);
-            document.getElementById("wheater_current").innerText = code[0] + " " + res.daily.temperature_2m_max[0] + "°/" + res.daily.temperature_2m_min[0] + "°";  
+            document.getElementById("weather_current").innerText = code[0] + " " + res.daily.temperature_2m_max[0] + "°/" + res.daily.temperature_2m_min[0] + "°";  
 
         //drugi blok    
 
