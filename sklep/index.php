@@ -21,28 +21,33 @@
         <nav>
             <h2><a href="index.php">Sklep ŚPŚD</a></h2>
 
+            <h3 class = "login"><a href="login.php">zaloguj</a></h3>
             <h3 class = "cart"><a href="cart.php">koszyk</a></h3>
         </nav>
 
         <form action='item.php' method = 'post'>
-            <?php
-                for($i = 0; $i < $row = mysqli_fetch_array($r); $i++){
-                    echo "<button type = 'submit' name = 'button' value = " . $i . ">";
-                        echo "<div>";
-                            echo "<img src='" . $row['zdjecie_link'] . "' alt='zdjęcie_przedmiotu_nr." . $i . "'>";
-                            echo "<h3>" . $row['nazwa'] ."</h3>";
+            <table>
+                <tr>
+                    <?php
+                        for($i = 0; $i < $row = mysqli_fetch_array($r); $i++){
+                            echo "<td>";
+                                echo "<button type = 'submit' name = 'button' value = " . $i . ">";
+                                    echo "<div>";
+                                        echo "<img src='" . $row['zdjecie_link'] . "' alt='zdjęcie_przedmiotu_nr." . $i . "'>";
+                                        echo "<h3>" . $row['nazwa'] ."</h3>";
+                                        echo "<p>" . number_format($row['cena'], 2) . "zł</p>";
+                                    echo "</div>";
+                                echo "</button>";
+                            echo "<td>";
 
-                            //nie wiem jak to inaczej zrobić, żeby jak jest cena np. 19.9 to żeby pokazywało 19.90
-                            if($row['cena'] == 19.9){
-                                echo "<p>" . $row['cena'] . "0zł</p>";
+                            if(($i + 1) % 3 == 0){
+                                echo "</tr>";
+                                echo "<tr>";
                             }
-                            else{
-                                echo "<p>" . $row['cena'] . "zł</p>";
-                            }
-                        echo "</div>";
-                    echo "</button>";
-                }
-            ?>
+                        }
+                    ?>
+                </tr>
+            </table>
         </form>
     </body>
 </html>

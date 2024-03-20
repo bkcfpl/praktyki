@@ -7,7 +7,11 @@ nav{
 }
 
 h2{
-    margin-right: 86vw;
+    margin-right: 79vw;
+}
+
+.login{
+    margin-right: 3vw;
 }
 
 a{
@@ -50,7 +54,7 @@ img{
     border-radius: 7%;
 }
 
-.cart:hover, a:hover{
+a:hover{
     color: white;
     cursor: pointer;
 }

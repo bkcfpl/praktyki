@@ -19,19 +19,17 @@ a{
     color: black;
 }
 
-main{
-    background-color: black;
+button{
+    background-color: rgb(37, 37, 37);
     color: white;
-    border-radius: 2%;
-    padding: 1vw;
+    border-radius: 25%;
+    border: none;
     font-family: 'Konkhmer Sleokchher';
-    margin: 2vw;
-    height: 70vh;
-    display: flex;
+    cursor: pointer;
 }
 
-form{
-    display: flex;
+button>a{
+    color: white;
 }
 
 body{
@@ -41,42 +39,18 @@ body{
     background-size: cover;
     margin: 0;
     font-family: 'Konkhmer Sleokchher';
-    /* overflow-y: hidden;
-    overflow-x: hidden; */
 }
 
-img{
-    border-radius: 7%;
-    border: 3px white solid;
-}
-
-.cart:hover, a:hover{
+a:hover{
     color: white;
     cursor: pointer;
 }
 
-.price{
-    width: 47%;
-    background-color: rgb(39, 39, 39);
-    border-radius: 13%;
-}
-
-section{
+form, h1{
     text-align: center;
+    margin: 0 44vw;
 }
 
-button{
-    background-color: darkred;
-    color: white;
-    border-radius: 5%;
-    border: 2px red solid;
-}
-
-button:hover{
-    background-color: red;
-    border: 2px darkred solid;
-}
-
-div{
-    display: flex;
+b{
+    color: darkred;
 }

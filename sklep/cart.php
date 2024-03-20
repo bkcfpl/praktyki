@@ -21,54 +21,43 @@
         <nav>
             <h2><a href="index.php">Sklep ŚPŚD</a></h2>
 
-            <h3 class = "cart"><a href="cart.php">koszyk</a></h3>
+            <h3 class = "login"><a href="login.php">zaloguj</a></h3>
+            <h3 class = "cart">koszyk</h3>
         </nav>
 
-        <form action='cart.php' method = 'post'>
-            <?php
-                echo "<table>";
+        <?php
+            echo "<table>";
 
-                    echo "<tr class = 'headers'>";
-                        echo "<th>nazwa</th>";
-                        echo "<th>ilość</th>";
-                        echo "<th>cena</th>";
-                    echo "</tr>";
-
-                    $loop = true;
-                    $i = 0;
-                    $summary = 0;
-                    while($loop){
-                        if($_SESSION['koszyk'][$i][0] != null){
-                            if($i % 2 == 0){
-                                echo "<tr>";
-                                    echo "<td>" . $_SESSION['koszyk'][$i][0] . "</td>";
-                                    echo "<td>" . $_SESSION['koszyk'][$i][1] . "</td>";
-                                    echo "<td>" . $_SESSION['koszyk'][$i][2] . "</td>";
-                                echo "</tr>";
-                            }
-                            else{
-                                echo "<tr class = 'second'>";
-                                    echo "<td>" . $_SESSION['koszyk'][$i][0] . "</td>";
-                                    echo "<td>" . $_SESSION['koszyk'][$i][1] . "</td>";
-                                    echo "<td>" . $_SESSION['koszyk'][$i][2] . "</td>";
-                                echo "</tr>";
-                            }
-
-                            $summary += $_SESSION['koszyk'][$i][2];
-                            $i++;
-                        }
-                        else{
-                            $loop = false;
-                        }
-                    }
-                echo "</table>";
+                echo "<tr class = 'headers'>";
+                    echo "<th>nazwa</th>";
+                    echo "<th>ilość</th>";
+                    echo "<th>cena</th>";
+                echo "</tr>";
 
                 $loop = true;
                 $i = 0;
                 $summary = 0;
+                while($loop){
+                    if($_SESSION['koszyk']['produkt' . $i]['nazwa'] != null){
+                        if($i % 2 == 0){
+                            echo "<tr>";
+                        }
+                        else{
+                            echo "<tr class = 'second'>";
+                        }
+                            echo "<td>" . $_SESSION['koszyk']['produkt' . $i]['nazwa'] . "</td>";
+                            echo "<td>" . $_SESSION['koszyk']['produkt' . $i]['ilosc'] . "</td>";
+                            echo "<td>" . number_format($_SESSION['koszyk']['produkt' . $i]['cena'], 2) . "</td>";
+                        echo "</tr>";
 
-                // echo "W sumie " . $summary;
-            ?>
-        </form>
+                        $summary += $_SESSION['koszyk']['produkt' . $i]['cena'];
+                        $i++;
+                    }
+                    else{
+                        $loop = false;
+                    }
+                }
+            echo "</table>";
+        ?>
     </body>
 </html>
