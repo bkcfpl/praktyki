@@ -1,0 +1,84 @@
+main{
+    display: flex;
+    width: 99vw;
+    margin-top: 12vh;
+    font-family: 'Konkhmer Sleokchher';
+}
+
+body{
+    text-align: center;
+    background-color:rgb(51, 190, 255);
+    overflow-x: hidden;
+}
+
+.left{
+    width: 28%;
+    height: 30vh;
+    padding: 15vh 0;
+}
+
+.middle{
+    width: 53%;
+    height: 50vh;
+    padding: 5vh 0;
+}
+
+.right{
+    width: 27%;
+    display: flex;
+    height: 30vh;
+    padding: 15vh 0;
+}
+
+.wind{
+    padding-top: 1vh;
+    margin: 0 20px;
+}
+
+.wind > p{
+    background-color: rgba(41, 97, 201, 0.733);
+    color: white;
+    border-radius: 8%;
+}
+
+.right>h3{
+    padding-top: 2vh;
+    background-color: rgba(41, 97, 201, 0.733);
+    color: white;
+    height: 18vh;
+    border-radius: 8%;
+    font-size: medium;
+}
+
+.left, .right, .middle{
+    background-color:rgba(100, 148, 237, 0.699);
+    border-radius: 3%;
+    margin: 5px;
+}
+
+.forecast{
+    margin: 0 26%;
+    width: 48%;
+    background-color: rgba(41, 97, 201, 0.733);
+    color: white;
+    border-radius: 3%;
+}
+
+.hourly{
+    font-size: 12px;
+    background-color: rgba(41, 97, 201, 0.733);
+    color: white;
+    border-radius: 3%;
+}
+
+i{
+    font-size: small;
+}
+
+.windy{
+    padding: 0 1vw;
+}
+
+.inputs{
+    font-family: 'Konkhmer Sleokchher';
+}

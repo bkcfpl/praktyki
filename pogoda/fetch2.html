@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fakty o kotach</title>
+    </head>
+    <body>
+        <h1>FAKTY O KOTACH</h1>
+        
+        <h2>wylosuj sobie fakt o kotach! UWAGA: fakty są po angielsku</h2>
+        
+        <p>losuj:</p>
+        <button onclick="refresh()">LOSUJ</button>
+        
+        <p id="a"></p>
+
+         
+        <script>
+            let a;
+            let b = 6;
+
+                function refresh(){
+                    a = Math.floor(Math.random() * 5);
+                    if(a == b){
+                        refresh();
+                    }
+                    else{
+                        b = a;
+                    }
+
+                    fetch("https://cat-fact.herokuapp.com/facts")
+                        .then(res => res.json())
+                        .then(res => {
+                            document.getElementById("a").innerHTML = res[a].text;
+                            console.log(res)
+                        })
+                }
+        </script>
+    </body>
+</html>

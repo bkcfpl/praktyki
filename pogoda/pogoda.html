@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Prognoza Pogoda</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 id="loading">ŁADOWANIE...Jeśli widzisz ten napis, oznacza to, że coś poszło nie tak.</h1>
+
+        <div class="inputs">
+            <h1>Wpowadź szerokość i długość geograficzną twojego miasta:</h1>
+            <input type="text" placeholder="szerokość" id="latitude">
+            <input type="text" placeholder="długość" id="longitude">
+            <button onclick="change_location()">Potwierdź</button>
+
+            <br/><br/>
+            <i>Jeśli nie znasz szerokości i długości geograficznej twojego miasta, możesz ją znaleźć na stronie <a href="https://genealogia.mrog.org/search.html" target="_blank">genealogia.mrog.org</a>. Strona automatycznie wyświetli prognozę dla warszawy, jeśli wartości będą puste</i>
+        </div>
+        
+        <main>
+            <aside class="left">
+                <i>temperatura</i>
+                <h1 id="temp_current">0.0°C</h1> <!--wzięte z current-->
+
+                <i>zachmurzenie, max/min temperatura</i>
+                <h2 id="wheater_current">czyste niebo 0.0°/0.0°</h2> <!--Min/max wzięte z daily, reszta wzięta z current-->
+            </aside>
+    
+            <div class="middle">
+                <table id="forecast" class="forecast">
+                    <tr>
+                        <th>ikona</th><th>data</th><th>warunki</th><th>max/min temperatura</th>
+                    </tr>
+                </table> <!--wzięte z daily-->
+                <br/>
+                <table id="hourly" class="hourly"></table><!--Wzięte z hourly-->
+                <br/>
+            </div>
+    
+            <aside class="right">
+                <aside class="wind">
+                    <p id="wind" class="windy">0.0 <br/>północ</p> <!--Wzięte z daily-->
+                    <p id="sun">00:00 wschód <br/> 00:00 zachód</p> <!--wzięte z daily-->
+                </aside>
+
+                <h3 id="general">wilgotność 0% <br/> odczuwalna 0° <br/> uv 0 <br/> ciśnienie 0mbar <br> szansa na deszcz 0%</h3>  <!--Wilgotność, odczuwalna, ciśnienie, opady wzięte z current, uv wzięte z daily -->
+            </aside>
+        </main>
+
+        <script src="pogodaScript.js"></script>
+    </body>
+</html>
