@@ -48,7 +48,7 @@ a:hover{
     cursor: pointer;
 }
 
-form, h1{
+h1{
     text-align: center;
     margin: 0 44vw;
 }
@@ -81,7 +81,7 @@ aside{
     border-radius: 7%;
 }
 
-section{
+form{
     width: 75vw;
     padding-top: 10vh;
 }
