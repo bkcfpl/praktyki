@@ -1,6 +1,5 @@
 <?php
     $connect = mysqli_connect("localhost", "root", "", "sklep");
-    $r = mysqli_query($connect, "SELECT * FROM `uzytkownicy`");
 
     session_start();
     error_reporting(0);
@@ -38,11 +37,19 @@
             <br/>
 
             <?php
+                $r = mysqli_query($connect, "SELECT * FROM `uzytkownicy` WHERE `login` = 'admin'");
+                $row = mysqli_fetch_array($r);
+
                 if(!empty($_SESSION['login'])){
                     echo "Witaj <b>" . $_SESSION['login'] . "</b>. Jesteś już zalogowany <br/>";
                     echo "<button type = 'submit' name = 'logout'>Wyloguj</button>";
                 }
+                else if($_POST['login'] == $row['login'] && $_POST['password'] == $row['haslo']){
+                    echo "Zalogowano na konto administratorskie.<br/>";
+                    echo "<button><a href = 'admin.php'>administruj</button>";
+                }
                 else if(isset($_POST['accept'])){
+                    $r = mysqli_query($connect, "SELECT * FROM `uzytkownicy`");
                     while($row = mysqli_fetch_array($r)){
                         if($_POST['login'] == $row['login'] && $_POST['password'] == $row['haslo']){
                             echo "Zalogowano! Witaj <b>" . $row['login'];

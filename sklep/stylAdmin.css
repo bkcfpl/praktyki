@@ -1,0 +1,61 @@
+nav{
+    display: flex;
+    background-color: rgb(29, 173, 0);
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+    padding: 1vw;
+}
+
+.index{
+    margin-right: 79vw;
+}
+
+.login{
+    margin-right: 3vw;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.produkt{
+    background-color: rgb(37, 37, 37);
+    color: white;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+    border: none;
+    font-family: 'Konkhmer Sleokchher';
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(90deg, rgb(10, 59, 0), rgb(23, 138, 0));
+    background-repeat: repeat-y;
+    background-size: cover;
+    margin: 0;
+    font-family: 'Konkhmer Sleokchher';
+    color: white;
+    text-align: center;
+}
+
+a:hover{
+    color: white;
+    cursor: pointer;
+}
+
+td{
+    border: 1px solid black;
+}
+
+.zamowienia{
+    margin-left: 25vw;
+    width: 50vw;
+}
+
+
+.users{
+    margin-left: 41vw;
+    width: 16vw;
+    padding-bottom: 10vh;
+}
