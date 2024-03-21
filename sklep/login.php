@@ -21,7 +21,7 @@
         <nav>
             <h2><a href="index.php">Sklep ŚPŚD</a></h2>
 
-            <h3 class = "login"><a href="login.php">zaloguj</a></h3>
+            <h3 class = "login">zaloguj</h3>
             <h3 class = "cart"><a href="cart.php">koszyk</a></h3>
         </nav>
 

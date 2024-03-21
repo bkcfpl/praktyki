@@ -39,6 +39,8 @@ body{
     background-size: cover;
     margin: 0;
     font-family: 'Konkhmer Sleokchher';
+    color: white;
+    text-align: center;
 }
 
 a:hover{
@@ -52,5 +54,5 @@ form, h1{
 }
 
 b{
-    color: darkred;
+    color: red;
 }

@@ -6,7 +6,7 @@ nav{
     padding: 1vw;
 }
 
-h2{
+.index{
     margin-right: 79vw;
 }
 
@@ -20,25 +20,16 @@ a{
 }
 
 button{
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgb(37, 37, 37);
+    color: white;
+    border-radius: 25%;
     border: none;
     font-family: 'Konkhmer Sleokchher';
     cursor: pointer;
 }
 
-tr{
-    background-color: gray;
-    border-radius: 1%;
-    padding: 1vw;
-    font-family: 'Konkhmer Sleokchher';
-    margin: 3vh;
-    display: flex;
-    width: 60vw;
-    margin-left: 20vw;
-}
-
-tr:hover{
-    background-color: lightslategray;
+button>a{
+    color: white;
 }
 
 body{
@@ -48,6 +39,7 @@ body{
     background-size: cover;
     margin: 0;
     font-family: 'Konkhmer Sleokchher';
+    color: white;
     text-align: center;
 }
 
@@ -56,28 +48,44 @@ a:hover{
     cursor: pointer;
 }
 
-th, td{
-    width: 33%;
+form, h1{
     text-align: center;
+    margin: 0 44vw;
 }
 
-.headers{
-    background-color: lightgray;
-    cursor: default;
+b{
+    color: red;
 }
 
-.headers:hover{
-    background-color: lightgray;
+.niedostepne{
+    color: grey;
 }
 
-.second{
-    background-color: lightgray;
-}
-
-.pay{
+.log_in{
     color: white;
 }
 
-.pay:hover{
+.log_in:hover{
     color:lightblue;
+}
+
+div{
+    display: flex;
+}
+
+aside{
+    margin-top: 15vh;
+    padding-top: 20vh;
+    width: 15vw;
+    background-color: black;
+    border-radius: 7%;
+}
+
+section{
+    width: 75vw;
+    padding-top: 10vh;
+}
+
+p{
+    color: red;
 }

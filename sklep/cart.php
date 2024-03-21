@@ -25,6 +25,7 @@
             <h3 class = "cart">koszyk</h3>
         </nav>
 
+<!-- Jak będą dwa takie same przedmioty, to żeby się dodały -->
         <?php
             echo "<table>";
 
@@ -47,17 +48,25 @@
                         }
                             echo "<td>" . $_SESSION['koszyk']['produkt' . $i]['nazwa'] . "</td>";
                             echo "<td>" . $_SESSION['koszyk']['produkt' . $i]['ilosc'] . "</td>";
-                            echo "<td>" . number_format($_SESSION['koszyk']['produkt' . $i]['cena'], 2) . "</td>";
+                            echo "<td>" . number_format($_SESSION['koszyk']['produkt' . $i]['cena'], 2) . "zł</td>";
                         echo "</tr>";
 
-                        $summary += $_SESSION['koszyk']['produkt' . $i]['cena'];
+                        $summary += floatval($_SESSION['koszyk']['produkt' . $i]['cena']);
                         $i++;
                     }
                     else{
                         $loop = false;
                     }
                 }
+                $_SESSION['summary'] = $summary;
             echo "</table>";
+
+            if(empty($_SESSION['koszyk']['produkt0']['nazwa'])){
+                echo "Twój koszyk jest pusty";
+            }
+            else{
+                echo "<button><a href = 'pay.php' class = 'pay'>Przejdź do płatności</a></button>";
+            }
         ?>
     </body>
 </html>
