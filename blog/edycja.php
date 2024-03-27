@@ -14,7 +14,6 @@
             if($_SESSION['zalogowany']){
                 $connect = mysqli_connect("localhost", "root", "", "formularz");
                 $result = mysqli_query($connect, "SELECT * FROM `uzytkownicy` WHERE `nick` = '" . $_SESSION['login'] . "'");
-
                 
                     echo "<table>";
                         while($row = mysqli_fetch_assoc($result)){
