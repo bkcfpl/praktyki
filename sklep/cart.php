@@ -1,4 +1,5 @@
 <?php
+    //połączenie się z bazą danych sklep i tabelką produkty
     $connect = mysqli_connect("localhost", "root", "", "sklep");
     $r = mysqli_query($connect, "SELECT * FROM `produkty`");
 
@@ -25,21 +26,23 @@
             <h3 class = "cart">koszyk</h3>
         </nav>
 
-<!-- Jak będą dwa takie same przedmioty, to żeby się dodały -->
         <?php
             echo "<table>";
-
                 echo "<tr class = 'headers'>";
                     echo "<th>nazwa</th>";
                     echo "<th>ilość</th>";
                     echo "<th>cena</th>";
                 echo "</tr>";
 
+                //nie wiem czy zmęczony byłem, ale można to było lepiej zrobić. Nie poprawiam, bo wiem że działą, a może nawet z czegoś takiego można się nauczyć
                 $loop = true;
                 $i = 0;
                 $summary = 0;
+
+                //pętla będzie się powtarzać, dopóki nazwa produktu nie będzie istnieć. czyli 1-"dlc" 2-"dlc" 3-null koniec pętli
                 while($loop){
                     if($_SESSION['koszyk']['produkt' . $i]['nazwa'] != null){
+                        //ustawa że co drugi wiersz ma inny kolor
                         if($i % 2 == 0){
                             echo "<tr>";
                         }
@@ -51,7 +54,7 @@
                             echo "<td>" . number_format($_SESSION['koszyk']['produkt' . $i]['cena'], 2) . "zł</td>";
                         echo "</tr>";
 
-                        $summary += floatval($_SESSION['koszyk']['produkt' . $i]['cena']);
+                        $summary += $_SESSION['koszyk']['produkt' . $i]['cena'];
                         $i++;
                     }
                     else{
@@ -61,9 +64,11 @@
                 $_SESSION['summary'] = $summary;
             echo "</table>";
 
+            //jeśli koszyk jest pusty
             if(empty($_SESSION['koszyk']['produkt0']['nazwa'])){
                 echo "Twój koszyk jest pusty";
             }
+            //jeśli w koszyku jest chociaż jeden przedmiot
             else{
                 echo "<button><a href = 'pay.php' class = 'pay'>Przejdź do płatności</a></button>";
             }

@@ -1,4 +1,5 @@
 <?php
+    //łączenie z bazą danych sklep
     $connect = mysqli_connect("localhost", "root", "", "sklep");
 
     session_start();
@@ -37,27 +38,37 @@
             <br/>
 
             <?php
+                //łączenie z tabelką użytkownicy, i szuka gdzie login = "admin"
                 $r = mysqli_query($connect, "SELECT * FROM `uzytkownicy` WHERE `login` = 'admin'");
                 $row = mysqli_fetch_array($r);
 
+                //jeśli użytkownik jest już zalogowany
                 if(!empty($_SESSION['login'])){
                     echo "Witaj <b>" . $_SESSION['login'] . "</b>. Jesteś już zalogowany <br/>";
                     echo "<button type = 'submit' name = 'logout'>Wyloguj</button>";
                 }
+                //jeśli wpisane dane są takie same jak login i hasło admina
                 else if($_POST['login'] == $row['login'] && $_POST['password'] == $row['haslo']){
                     echo "Zalogowano na konto administratorskie.<br/>";
                     echo "<button><a href = 'admin.php'>administruj</button>";
                 }
+                //jeśli przycisk został kliknięty
                 else if(isset($_POST['accept'])){
+
+                    //łączenie z tabelką użytkownicy
                     $r = mysqli_query($connect, "SELECT * FROM `uzytkownicy`");
+
+                    //dla każdego użytkownika, sprawdza czy wpisane dane są równe loginowi i haśle jakiegokolwiek użytkownika
                     while($row = mysqli_fetch_array($r)){
+                        //jeśli wprowadzone dane są równe loginowi i haśle jednego z użytkowników
                         if($_POST['login'] == $row['login'] && $_POST['password'] == $row['haslo']){
                             echo "Zalogowano! Witaj <b>" . $row['login'];
                             echo "</b><br/><button type = 'submit' name = 'logout'>Wyloguj</button>";
                             $_SESSION['login'] = $row['login'];
                             break;
                         }
-    
+
+                        //jeśli $row['id'] będzie = ostatniemu id, czyli jeśli przeszukano całą tabelkę
                         if($row['id'] == mysqli_num_rows($r)){
                             echo "Zły login lub hasło. Spróbuj ponownie";
                         }
@@ -67,6 +78,7 @@
                     echo "Wprowadź login i hasło";
                 }
 
+                //jeśli użytkownik chce się wylogować
                 if(isset($_POST['logout'])){
                     session_destroy();
                     header("Refresh: 0");
